@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Trivia!</title>
+    <style>
+        .correct-answer-tag {
+            color: green;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .incorrect-answer-tag {
+            color: red;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Part 1: Multiple Choice </h2>
+            <hr>
+            <h3>What is the height of a giraffe?</h3>
+
+            <ul>
+                <li data-answer="28 feet">
+                    <input type="radio" id="option1" name="height" value="24 feet"> 24 feet
+                    <label for="option1"></label>
+                </li>
+
+                <li data-answer="28 feet">
+                    <input type="radio" id="option2" name="height" value="28 feet"> 28 feet
+                    <label for="option2"></label>
+                </li>
+                <li data-answer="28 feet">
+                    <input type="radio" id="option3" name="height" value="32 feet"> 32 feet
+                    <label for="option3"></label>
+                </li>
+
+                <li data-answer="28 feet">
+                    <input type="radio" id="option4" name="height" value="20 feet"> 20 feet
+                    <label for="option4"></label>
+                </li>
+
+                <div>
+                    <button id="submitButton">Submit</button>
+                    <p id="answerTag" style="display: none;"></p>
+                </div>
+            </ul>
+        </div>
+
+         <div class="section">
+        <h2>Part 2: Free Response</h2>
+        <hr>
+        <h3>What will be the numeric decode of KDHGTYQ?</h3>
+        <input id="freeResponseInput" autocomplete="off" autofocus placeholder="Write your answer here" type="text">
+        <div>
+            <button id="frSubmitButton">Submit</button>
+            <p id="frAnswerTag" style="display: none;"></p>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        document.getElementById("submitButton").addEventListener("click", function() {
+            const correctAnswer = "28 feet";
+            const selectedAnswer = document.querySelector('input[name="height"]:checked');
+            const answerTag = document.getElementById("answerTag");
+
+            if (selectedAnswer) {
+                answerTag.style.display = "block";
+                if (selectedAnswer.value === correctAnswer) {
+                    answerTag.textContent = "Correct answer!";
+                    answerTag.classList.add("correct-answer-tag");
+                } else {
+                    answerTag.textContent = "Wrong answer!";
+                    answerTag.classList.add("incorrect-answer-tag");
+                }
+            } else {
+                alert("Please select an answer.");
+            }
+        });
+    </script>
+
+     <script>
+        document.getElementById("frSubmitButton").addEventListener("click", function() {
+            const correctAnswer = "11487202517";
+            const userAnswer = document.getElementById("freeResponseInput").value;
+            const answerTag = document.getElementById("frAnswerTag");
+
+            if (userAnswer) {
+                answerTag.style.display = "block";
+                if (userAnswer === correctAnswer) {
+                    answerTag.textContent = "Correct answer!";
+                    answerTag.classList.add("correct-answer-tag");
+                } else {
+                    answerTag.textContent = "Wrong answer!";
+                    answerTag.classList.add("incorrect-answer-tag");
+                }
+            } else {
+                alert("Please fill in a numeric decoded answer.");
+            }
+        });
+    </script>
+
+
+
+</body>
+</html>
